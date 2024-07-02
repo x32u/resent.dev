@@ -51,14 +51,6 @@ export default function Home() {
                     an aesthetic all-in-one bot, enhancing communities with
                     user-focused commands.
                 </span>
-                {apiIssue ? null : (
-                    <>
-                        <span className="text-sm pb-4 text-zinc-300 text-center">
-                            Serving <b>{stats.servers}</b> guilds with over{" "}
-                            <b>{stats.members.toLocaleString()}</b> users
-                        </span>
-                    </>
-                )}
                 <div className="flex flex-col gap-4 sm:flex-row">
                     <SplashItem
                         name="Commands"
