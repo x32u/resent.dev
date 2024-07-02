@@ -1,0 +1,12 @@
+{
+    "shards": [
+        {
+            "shard_id": 0,
+            "is_ready": true,
+            "server_count": 423,
+            "cached_user_count": 442069,
+            "uptime": 1715500807,
+            "latency": 24.61
+        }
+    ]
+}
