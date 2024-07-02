@@ -76,11 +76,6 @@ export default function Home() {
                         icon={<BiBookAdd />}
                     />
                     <SplashItem
-                        name="Donate"
-                        link="https://donate.stripe.com/14k5nS5wX3sV2kw001"
-                        icon={<FaMoneyBillWaveAlt />}
-                    />
-                    <SplashItem
                         name="Invite"
                         link="https://discord.com/api/oauth2/authorize?client_id=716939297009434656&permissions=8&scope=bot%20applications.commands"
                         icon={<FaRegEnvelope />}
