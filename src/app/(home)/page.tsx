@@ -57,7 +57,7 @@ export default function Home() {
                         icon={<FiCommand />}
                     />
                     <SplashItem
-                        name="Discord"
+                        name="Authorize"
                         link="https://discord.gg/evict"
                         icon={<BsDiscord />}
                     />
@@ -65,11 +65,6 @@ export default function Home() {
                         name="Documentation"
                         link="https://docs.evict.cc/"
                         icon={<BiBookAdd />}
-                    />
-                    <SplashItem
-                        name="Invite"
-                        link="https://discord.com/api/oauth2/authorize?client_id=1203514684326805524&permissions=8&scope=bot%20applications.commands"
-                        icon={<FaRegEnvelope />}
                     />
                 </div>
             </div>

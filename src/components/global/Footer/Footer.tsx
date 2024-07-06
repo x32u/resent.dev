@@ -19,7 +19,7 @@ export const Footer = () => {
                             <h3 className="text-2xl text-white">Evict</h3>
                             <ul role="list" className="mt-4 space-y-2">
                                 <p className="hover:text-white">
-                                    an all in one bot dedicated to providing a good experience to the best servers on discord.
+                                    an all in one bot dedicated to providing the best experience to the best servers on discord.
                                 </p>
                             </ul>
                         </div>
@@ -89,9 +89,6 @@ export const Footer = () => {
                         <span className="text-sm font-medium text-gray-500 text-balance">
                             &copy; 2024 Evict - All rights reserved
                             <span className="text-transparent">
-                                {" "}
-                                <br />
-                                Made (in part) by Kars ツ{" "}
                             </span>
                         </span>
                     </div>
