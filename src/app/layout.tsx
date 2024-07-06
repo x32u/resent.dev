@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     description: 'an all in one bot dedicated to providing the best experience to the best servers on discord.',
     images: [
       {
-        url: 'https://cdn.resent.dev/resent.webp',
+        url: 'https://r2.evict.cc/evict.webp',
         width: 500,
         height: 500,
         alt: 'Loti'
