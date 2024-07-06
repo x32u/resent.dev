@@ -13,14 +13,13 @@ export const Footer = () => {
                     <div className="grid grid-cols-2 gap-8 py-12 mt-4 mb-12 text-sm font-medium lg:grid-cols-3 xl:col-span-2">
                         <div>
                             <img
-                                src="https://cdn.resent.dev/resent.png"
+                                src="https://r2.evict.cc/evict.png"
                                 className="w-[64px] h-[64px] rounded-xl"
                             />
-                            <h3 className="text-2xl text-white">Resent</h3>
+                            <h3 className="text-2xl text-white">Evict</h3>
                             <ul role="list" className="mt-4 space-y-2">
                                 <p className="hover:text-white">
-                                    A multipurpose discord bot elevating your
-                                    community
+                                    an all in one bot dedicated to providing a good experience to the best servers on discord.
                                 </p>
                             </ul>
                         </div>
@@ -66,7 +65,7 @@ export const Footer = () => {
                                 </li>
                                 <li>
                                     <a
-                                        href="https://embed.resent.dev"
+                                        href="https://embed.evict.cc"
                                         className="text-gray-500 hover:text-white"
                                     >
                                         Embed
@@ -74,7 +73,7 @@ export const Footer = () => {
                                 </li>
                                 <li>
                                     <a
-                                        href="https://docs.resent.dev"
+                                        href="https://docs.evict.cc"
                                         className="text-gray-500 hover:text-white"
                                     >
                                         Docs
@@ -88,7 +87,7 @@ export const Footer = () => {
                         x-data="{ year: new Date().getFullYear() }"
                     >
                         <span className="text-sm font-medium text-gray-500 text-balance">
-                            &copy; 2024 Resent Dev - All rights reserved
+                            &copy; 2024 Evict - All rights reserved
                             <span className="text-transparent">
                                 {" "}
                                 <br />

@@ -43,13 +43,12 @@ export default function Home() {
         <>
             <div className="flex flex-col h-screen w-screen items-center justify-center mt-20 sm:mt-0">
                 <img
-                    src="https://cdn.resent.dev/resent.png"
+                    src="https://r2.evict.cc/evict.png"
                     className="w-52 h-52 rounded-xl"
                 />
-                <h1 className="text-6xl font-bold text-white">resent</h1>
+                <h1 className="text-6xl font-bold text-white">evict</h1>
                 <span className="text-sm pb-4 text-zinc-300 text-center">
-                    an aesthetic all-in-one bot, enhancing communities with
-                    user-focused commands.
+                    an all in one bot dedicated to providing the best experience to the best servers on discord.
                 </span>
                 <div className="flex flex-col gap-4 sm:flex-row">
                     <SplashItem
@@ -59,17 +58,17 @@ export default function Home() {
                     />
                     <SplashItem
                         name="Discord"
-                        link="https://discord.gg/resent"
+                        link="https://discord.gg/evict"
                         icon={<BsDiscord />}
                     />
                     <SplashItem
                         name="Documentation"
-                        link="https://docs.resent.dev/"
+                        link="https://docs.evict.cc/"
                         icon={<BiBookAdd />}
                     />
                     <SplashItem
                         name="Invite"
-                        link="https://discord.com/api/oauth2/authorize?client_id=716939297009434656&permissions=8&scope=bot%20applications.commands"
+                        link="https://discord.com/api/oauth2/authorize?client_id=1203514684326805524&permissions=8&scope=bot%20applications.commands"
                         icon={<FaRegEnvelope />}
                     />
                 </div>

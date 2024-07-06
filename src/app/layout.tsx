@@ -11,18 +11,18 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "resent",
-  description: "an aesthetic all-in-one bot, enhancing communities with user-focused commands.",
+  title: "evict",
+  description: "an all in one bot dedicated to providing a good experience to the best servers on discord.",
   twitter: {
-    site: 'https://resent.dev/',
+    site: 'https://evict.cc',
     card: 'player'
   },
   openGraph: {
-    url: 'https://resent.dev/',
+    url: 'https://evict.cc',
     type: 'website',
-    title: 'resent',
-    siteName: 'resent.dev',
-    description: 'an aesthetic all-in-one bot, enhancing communities with user-focused commands.',
+    title: 'evict',
+    siteName: 'evict.cc',
+    description: 'an all in one bot dedicated to providing a good experience to the best servers on discord.',
     images: [
       {
         url: 'https://cdn.resent.dev/resent.webp',
