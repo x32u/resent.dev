@@ -27,6 +27,14 @@ const Redirects = ({ params }: { params: { slug: string } }) => {
             path: "/invite",
             url: "https://discordapp.com/oauth2/authorize?client_id=1203514684326805524&scope=bot+applications.commands&permissions=8",
         },
+        {
+            path: "/docs",
+            url: "https://docs.evict.cc",
+        },
+        {
+            path: "/variables",
+            url: "https://docs.evict.cc/embeds/variables",
+        },
     ];
 
     const redirect = redirects.find(

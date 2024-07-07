@@ -58,12 +58,12 @@ export default function Home() {
                     />
                     <SplashItem
                         name="Authorize"
-                        link="https://discord.gg/evict"
+                        link="/discord"
                         icon={<BsDiscord />}
                     />
                     <SplashItem
                         name="Documentation"
-                        link="https://docs.evict.cc/"
+                        link="/docs"
                         icon={<BiBookAdd />}
                     />
                 </div>
