@@ -57,7 +57,7 @@ export const Footer = () => {
                                 </li>
                                 <li>
                                     <a
-                                        href="./invite"
+                                        href="./commands"
                                         className="text-gray-500 hover:text-white"
                                     >
                                         Commands
