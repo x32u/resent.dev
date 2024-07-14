@@ -3145,8 +3145,22 @@
             "category": "Music"
         },
         {
+            "name": "queue",
+            "description": "view the queue",
+            "help": "None",
+            "brief": "None",
+            "category": "Music"
+        },
+        {
             "name": "loop",
             "description": "loop a song",
+            "help": "<track <queue> <off>",
+            "brief": "None",
+            "category": "Music"
+        },
+        {
+            "name": "current",
+            "description": "view the currently playing song",
             "help": "None",
             "brief": "None",
             "category": "Music"
@@ -3154,7 +3168,7 @@
         {
             "name": "volume",
             "description": "change the volume",
-            "help": "<1-500>",
+            "help": "<1-100>",
             "brief": "None",
             "category": "Music"
         },
