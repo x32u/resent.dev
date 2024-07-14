@@ -3173,6 +3173,13 @@
             "category": "Music"
         },
         {
+            "name": "join",
+            "description": "have the bot join the vc",
+            "help": "None",
+            "brief": "None",
+            "category": "Music"
+        },
+        {
             "name": "skip",
             "description": "skip a song",
             "help": "None",
