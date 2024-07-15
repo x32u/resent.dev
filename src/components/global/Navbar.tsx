@@ -15,6 +15,7 @@ export const Navbar = () => {
                 <div className="hidden flex-row gap-10 items-center sm:flex">
                     <Link href="/commands" className={`font-semibold py-6 ${pathname === '/commands' ? 'border-b-2 border-loti-pink text-loti-white' : ''}`}>Commands</Link>
                     <Link href="https://docs.evict.cc" className={`font-semibold py-6 ${pathname === '/docs' ? 'border-b-2 border-loti-pink text-loti-white' : ''}`}>Documentation</Link>
+                    <Link href="/legal" className={`font-semibold py-6 ${pathname === '/docs' ? 'border-b-2 border-loti-pink text-loti-white' : ''}`}>Legal</Link>
                 </div>
                 <Link href='https://discord.gg/evict' className="flex items-center bg-blue-500 px-4 rounded-2xl gap-2 h-10 mt-2 hover:bg-blue-700 sm:mt-4">
                     <BsDiscord />
