@@ -29,9 +29,9 @@ export default function Privacy() {
                 </a>{" "}
                 and open a ticket.
                 <br /> <br />
-                Date created: 23rd of May 2024
+                Date created: 15th of July
                 <br />
-                Date revised: 23rd of May 2024
+                Date revised: 15th of July
               </p>
             </div>
             <div>

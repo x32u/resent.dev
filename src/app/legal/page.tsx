@@ -63,7 +63,6 @@ export default function Legal() {
                   <div className="flex items-start justify-between gap-x-4">
                     <div className="flex items-center gap-2">
                       <p className="text-xl font-semibold inline-flex items-center">
-                        Imprint
                       </p>
                     </div>
                   </div>
