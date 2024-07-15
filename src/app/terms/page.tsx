@@ -1,6 +1,5 @@
 "use client";
 
-import { Scale } from "lucide-react";
 import { useState } from "react";
 
 export default function Terms() {
