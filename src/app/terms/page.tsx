@@ -90,11 +90,32 @@ export default function Terms() {
                             </li>
                             <li>
                               <a
-                                href="https://evict.cc"
+                                href="https://r2.evict.cc"
                                 className="text-blue-400"
                                 target="_blank"
                               >
                                 https://r2.evict.cc
+                              </a>
+                              <a
+                                href="https://docs.evict.cc"
+                                className="text-blue-400"
+                                target="_blank"
+                              >
+                                https://docs.evict.cc
+                              </a>
+                              <a
+                                href="https://kure.pl"
+                                className="text-blue-400"
+                                target="_blank"
+                              >
+                                https://kure.pl
+                              </a>
+                              <a
+                                href="https://resent.dev"
+                                className="text-blue-400"
+                                target="_blank"
+                              >
+                                https://resent.dev
                               </a>
                             </li>
                           </ul>
