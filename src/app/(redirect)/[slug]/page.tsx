@@ -35,6 +35,14 @@ const Redirects = ({ params }: { params: { slug: string } }) => {
             path: "/variables",
             url: "https://docs.evict.cc/embeds/variables",
         },
+        {
+            path: "/privacy",
+            url: "/legal/privacy",
+        },
+        {
+            path: "/terms",
+            url: "/legal/terms",
+        },
     ];
 
     const redirect = redirects.find(
