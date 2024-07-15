@@ -95,21 +95,27 @@ export default function Terms() {
                                 target="_blank"
                               >
                                 https://r2.evict.cc
-                              </a>
+                                </a>
+                            </li>
+                            <li>
                               <a
                                 href="https://docs.evict.cc"
                                 className="text-blue-400"
                                 target="_blank"
                               >
                                 https://docs.evict.cc
-                              </a>
+                                </a>
+                            </li>
+                            <li>
                               <a
                                 href="https://kure.pl"
                                 className="text-blue-400"
                                 target="_blank"
                               >
                                 https://kure.pl
-                              </a>
+                                </a>
+                            </li>
+                            <li>
                               <a
                                 href="https://resent.dev"
                                 className="text-blue-400"
