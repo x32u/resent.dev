@@ -19,7 +19,6 @@ import { IoChatbubbleEllipses } from "react-icons/io5";
 import { TbMilitaryRank } from "react-icons/tb";
 import Exported from "./commands.json";
 import { Navbar } from "@/components/global/Navbar";
-import { Footer } from "@/components/global/Footer/Footer";
 
 export default function Commands() {
     const [activeCategory, setActiveCategory] = useState("Donator");
@@ -279,7 +278,6 @@ export default function Commands() {
                     </div>
                 </section>
             </main>
-            <Footer />
         </>
     );
 }
