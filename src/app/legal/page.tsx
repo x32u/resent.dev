@@ -1,4 +1,5 @@
 "use client";
+import { Navbar } from "@/components/global/Navbar";
 
 export default function Legal() {
   return (
@@ -67,32 +68,6 @@ export default function Legal() {
                     </div>
                   </div>
                   <p className="text-sm mt-3 text-neutral-400 font-medium pr-4">
-                    The following imprint (Impressum) has been made available in
-                    accordance with media/publishing regulations in the United
-                    Kingdom. We are required to provide this information under{" "}
-                    <a
-                      href="https://en.wikipedia.org/wiki/Political_Parties,_Elections_and_Referendums_Act_2000"
-                      className="color-blue-400"
-                    >
-                      Political Parties, Elections and Referendums Act 2000.{" "}
-                    </a>{" "}
-                    If you have any concerns or question please reach out to us
-                    via{" "}
-                    <a
-                      href="https://discord.gg/evict"
-                      className="text-blue-400"
-                    >
-                      our support server
-                    </a>{" "}
-                    and open a ticket.
-                    <br />
-                    <br />
-                    This site is operated and represented by:
-                    <br />
-                    <br />
-                    EVICT
-                    <br />
-                    privacy@evict.cc <br />
                   </p>
                 </div>
               </div>
