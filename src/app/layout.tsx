@@ -44,7 +44,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${manrope.className} bg-loti-100`}>
         <MeshGradient />
-        {/* <Navbar /> */}
+        <Navbar /> 
         {children}
         </body>
     </html>
