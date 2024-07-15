@@ -1,5 +1,4 @@
 "use client";
-import { Navbar } from "@/components/global/Navbar";
 
 export const Navbar = () => {
     const pathname = usePathname()
