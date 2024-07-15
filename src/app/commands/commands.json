@@ -1833,13 +1833,6 @@
             "category": "Fun"
         },
         {
-            "name": "no",
-            "description": "just says yes",
-            "help": "None",
-            "brief": "None",
-            "category": "Fun"
-        },
-        {
             "name": "pp",
             "description": "returns users dick size",
             "help": "<member>",
@@ -1857,13 +1850,6 @@
             "name": "hot",
             "description": "hot rate an user",
             "help": "<member>",
-            "brief": "None",
-            "category": "Fun"
-        },
-        {
-            "name": "yes",
-            "description": "just says no",
-            "help": "None",
             "brief": "None",
             "category": "Fun"
         },
@@ -2148,34 +2134,6 @@
             "name": "selfpurge",
             "description": "purges an amount of messages sent by you",
             "help": "<amount>",
-            "brief": "donor",
-            "category": "Donator"
-        },
-        {
-            "name": "reskin enable",
-            "description": "enable reskin",
-            "help": "None",
-            "brief": "donor",
-            "category": "Donator"
-        },
-        {
-            "name": "reskin name",
-            "description": "change the reskin name",
-            "help": "<name>",
-            "brief": " donor",
-            "category": "Donator"
-        },
-        {
-            "name": "reskin avatar",
-            "description": "change the reskin avatar",
-            "help": "<image/url>",
-            "brief": "donor",
-            "category": "Donator"
-        },
-        {
-            "name": "reskin disable",
-            "description": "disable the reskin",
-            "help": "None",
             "brief": "donor",
             "category": "Donator"
         },
