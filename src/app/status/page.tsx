@@ -8,7 +8,6 @@ import { FaUsers } from "react-icons/fa";
 import Exported from "./shards.json";
 import { IoInformationCircleSharp } from "react-icons/io5";
 import { Navbar } from "@/components/global/Navbar";
-import { Footer } from "@/components/global/Footer/Footer";
 
 
 interface ShardData {
@@ -88,7 +87,6 @@ export default function Status() {
                     </div>
                 </section>
             </main>
-            <Footer />
         </>
     );
 }
