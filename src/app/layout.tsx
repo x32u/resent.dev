@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import "@/styles/globals.css";
 import { MeshGradient } from "@/components/global/GradientMesh";
 import { Navbar } from "@/components/global/Navbar";
+import { Footer } from "@/components/global/Footer";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -45,6 +46,7 @@ export default function RootLayout({
       <body className={`${manrope.className} bg-loti-100`}>
         <MeshGradient />
         <Navbar /> 
+        <Footer /> 
         {children}
         </body>
     </html>
