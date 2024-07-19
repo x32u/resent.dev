@@ -12,7 +12,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: "evict",
-  description: "an all in one bot dedicated to providing the best experience to the best servers on discord.",
+  description: "An all in one bot dedicated to providing the best experience to the best servers on Discord. ",
   twitter: {
     site: 'https://evict.cc',
     card: 'player'
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     type: 'website',
     title: 'evict',
     siteName: 'evict.cc',
-    description: 'an all in one bot dedicated to providing the best experience to the best servers on discord.',
+    description: 'An all in one bot dedicated to providing the best experience to the best servers on Discord. ',
     images: [
       {
         url: 'https://r2.evict.cc/evict.webp',

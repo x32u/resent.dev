@@ -19,7 +19,7 @@ export const Footer = () => {
                             <h3 className="text-2xl text-white">Evict</h3>
                             <ul role="list" className="mt-4 space-y-2">
                                 <p className="hover:text-white">
-                                    an all in one bot dedicated to providing the best experience to the best servers on discord.
+                                    An all in one bot dedicated to providing the best experience to the best servers on Discord. 
                                 </p>
                             </ul>
                         </div>

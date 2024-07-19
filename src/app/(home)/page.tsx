@@ -48,7 +48,7 @@ export default function Home() {
                 />
                 <h1 className="text-6xl font-bold text-white">evict</h1>
                 <span className="text-sm pb-4 text-zinc-300 text-center">
-                    an all in one bot dedicated to providing the best experience to the best servers on discord.
+                    An all in one bot dedicated to providing the best experience to the best servers on Discord. 
                 </span>
                 <div className="flex flex-col gap-4 sm:flex-row">
                     <SplashItem
