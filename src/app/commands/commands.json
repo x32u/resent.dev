@@ -1791,13 +1791,6 @@
             "category": "Fun"
         },
         {
-            "name": "gm",
-            "description": "says good morning",
-            "help": "None",
-            "brief": "None",
-            "category": "Fun"
-        },
-        {
             "name": "choose",
             "description": "choose between options",
             "help": "<choices separated by a comma>",
@@ -1871,13 +1864,6 @@
             "name": "coinflip",
             "description": "flip a coin",
             "help": "<heads / tails>",
-            "brief": "None",
-            "category": "Fun"
-        },
-        {
-            "name": "gn",
-            "description": "says good night",
-            "help": "None",
             "brief": "None",
             "category": "Fun"
         },
@@ -2044,6 +2030,34 @@
             "description": "revoke the hardban from an user",
             "help": "<user>",
             "brief": "manage guild & donor",
+            "category": "Donator"
+        },
+        {
+            "name": "reskin enable",
+            "description": "enable reskin",
+            "help": "None",
+            "brief": "donor",
+            "category": "Donator"
+        },
+        {
+            "name": "reskin name",
+            "description": "change the reskin name",
+            "help": "<name>",
+            "brief": " donor",
+            "category": "Donator"
+        },
+        {
+            "name": "reskin avatar",
+            "description": "change the reskin avatar",
+            "help": "<image/url>",
+            "brief": "donor",
+            "category": "Donator"
+        },
+        {
+            "name": "reskin disable",
+            "description": "disable the reskin",
+            "help": "None",
+            "brief": "donor",
             "category": "Donator"
         },
         {
