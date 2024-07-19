@@ -570,14 +570,7 @@
             "category": "Utility"
         },
         {
-            "name": "boosters lost",
-            "description": "display lost boosters",
-            "help": "None",
-            "brief": "None",
-            "category": "Utility"
-        },
-        {
-            "name": "boosters list",
+            "name": "boosters",
             "description": "see all server boosters",
             "help": "None",
             "brief": "None",
