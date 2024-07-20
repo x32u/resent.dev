@@ -82,7 +82,9 @@ export default function Commands() {
                             >
                                 <FaSearch className="w-5 h-5 font-thin" />
                             </button>
-                            {open && <Modal isOpen={open} setIsOpen={setOpen} />}                            
+                            {open && (
+                                <Modal isOpen={open} setIsOpen={setOpen} />
+                            )}
                         </div>
                     </div>
                     <div
