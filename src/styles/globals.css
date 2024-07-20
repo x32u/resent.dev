@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -21,12 +21,10 @@
   z-index: -1;
   width: 100%;
   height: 100%;
-
   bottom: 0;
   left: 0;
   right: 0;
   top: 0;
-
   --gradient-color-1: #776dd4;
   --gradient-color-2: #776dd4;
   --gradient-color-3: #ffffff;
@@ -89,4 +87,81 @@ body {
 button:hover .tooltip {
   visibility: visible;
   opacity: 1;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.mobileInputView {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .inputDependantWidthSize {
+    display: none;
+  }
+
+  .mobileInputView {
+    display: block;
+    color: white;
+    position: relative;
+  }
+
+  .icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: red;
+    padding: 4px;
+    position: absolute;
+    box-sizing:border-box;
+    top:50%;
+    left:2px;
+    transform: translateY(-50%);
+  }
+}
+
+.modal {
+  font-size: 12px;
+  background-color: #141314;
+  border-radius: 15px !important;
+  height: fit-content;
+  overflow: hidden;
+}
+.modal > .header {
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+}
+.modal > .content {
+  width: 100%;
+  padding: 10px 5px;
+  max-height: 550px;
+  overflow-y: scroll;
+}
+.modal > .actions {
+  width: 100%;
+  padding: 10px 5px;
+  margin: auto;
+  text-align: center;
+}
+
+.popup-content {
+  border: 0px !important;
+  border-radius: 15px !important;
+  padding: 0 !important;
+  background-color: transparent !important;
+  width: fit-content !important;
+}
+
+#popup-1 {
+  width: fit-content !important;
+  display: flex;
+  background-color: rgba(20, 19, 20 , 0.1) !important;
+  overflow: hidden !important;
+  height: fit-content !important;
+}
+
+.searchbox {
+  filter: drop-shadow(rgba(0, 0, 0, 0.15) 0px 25px 25px);
 }
