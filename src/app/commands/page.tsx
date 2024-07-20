@@ -335,11 +335,9 @@ const Command = ({
     const handleCopyClick = () => {
         navigator.clipboard.writeText(name);
         setTooltipText("Copied");
+        setTimeout(() => {setTooltipText("Copy")}, 2500)
     };
 
-    const handleMouseEnter = () => {
-        setTooltipText("Copy");
-    };
     return (
         <>
         <div className="flex flex-col py-6 rounded-3xl bg-loti-200 border transition-shadow duration-200 ease-linear border-loti-300 text-white">
@@ -353,12 +351,11 @@ const Command = ({
                         </div>
                         <button
                             data-clipboard-text={name}
-                            className="text-neutral-500 transition duration-200 ease-linear hover:text-white"
+                            className="text-neutral-500 transition duration-200 ease-linear hover:text-white relative"
                             onClick={handleCopyClick}
-                            onMouseEnter={handleMouseEnter}
-                            title={tooltipText}
                         >
                             <BiCopy className="w-6 h-6" />
+                            <span className="tooltip">{tooltipText}</span>
                         </button>
                     </div>
                     <p className="text-sm mt-3 text-neutral-400 font-medium pr-4">
