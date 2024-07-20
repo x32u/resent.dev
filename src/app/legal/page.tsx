@@ -21,7 +21,7 @@ export default function Legal() {
                 required to notify you of changes to any documents, so please
                 make sure to check this website frequently. If you have any
                 concerns or requests, feel free to reach out to us via{" "}
-                <a href="https://discord.gg/greedbot" className="text-blue-400">
+                <a href="https://discord.gg/evict" className="text-blue-400">
                   our support server
                 </a>{" "}
                 and open a ticket.
