@@ -2,9 +2,20 @@
 import { useState, useEffect } from "react";
 import Exported from "./commands.json";
 
-export default function Modal({ setIsOpen = false }: { setIsOpen: boolean }) {
-    const [open, setOpen] = useState<boolean>(setIsOpen);
+export default function Modal({
+    isOpen,
+    setIsOpen,
+}: {
+    isOpen: boolean;
+    setIsOpen: (isOpen: boolean) => void;
+}) {
+    const [open, setOpen] = useState<boolean>(isOpen);
     const [searchInput, setSearchInput] = useState<string>("");
+
+    useEffect(() => {
+        setOpen(isOpen);
+    }, [isOpen]);
+
     useEffect(() => {
         if (open) {
             document.body.style.overflow = "hidden";
@@ -19,14 +30,22 @@ export default function Modal({ setIsOpen = false }: { setIsOpen: boolean }) {
 
     if (!open) return null;
 
-    const filteredCommands = commands.filter(command => 
+    const filteredCommands = commands.filter((command) =>
         command.name.toLowerCase().includes(searchInput.toLowerCase())
     );
+
+    const handleCommandClick = (commandName: string) => {
+        setIsOpen(false);
+        // useEffect(() => {
+            document.body.style.overflow = "auto";
+        // });
+        window.location.hash = `#${commandName}`;
+    };
 
     return (
         <div
             className="w-full h-full backdrop-blur-lg fixed top-0 left-0 flex z-50 justify-center items-center"
-            onClick={() => setOpen(false)}
+            onClick={() => setIsOpen(false)}
         >
             <div
                 className="max-w-[542px] w-full sm:w-[542px] bg-[#111212] rounded-3xl overflow-visible"
@@ -37,9 +56,7 @@ export default function Modal({ setIsOpen = false }: { setIsOpen: boolean }) {
                         <center>
                             <input
                                 type="search"
-                                onChange={(e) =>
-                                    setSearchInput(e.target.value)
-                                }
+                                onChange={(e) => setSearchInput(e.target.value)}
                                 className="flex items-center justify-center w-full px-12 pl-4 text-lg bg-[#161717] placeholder-zinc-400 text-white focus:outline-none searchbox border-0 py-5 font-semibold"
                                 placeholder="Search for a command..."
                                 required
@@ -50,17 +67,24 @@ export default function Modal({ setIsOpen = false }: { setIsOpen: boolean }) {
                         <div className="content bg-[#111212] py-2 px-3">
                             <div className="mt-1 grid grid-cols-1 gap-3">
                                 {filteredCommands.length > 0 ? (
-                                    filteredCommands.map((commandsSearch) => (
-                                        <CommandSearch
-                                            key={commandsSearch.name}
-                                            name={commandsSearch.name}
-                                            description={
-                                                commandsSearch.help ?? "None"
+                                    filteredCommands.map((command) => (
+                                        <button
+                                            key={command.name}
+                                            onClick={() =>
+                                                handleCommandClick(command.name)
                                             }
-                                            category={
-                                                commandsSearch.category ?? "None"
-                                            }
-                                        />
+                                            className="items-start text-left w-full"
+                                        >
+                                            <CommandSearch
+                                                name={command.name}
+                                                description={
+                                                    command.help ?? "None"
+                                                }
+                                                category={
+                                                    command.category ?? "None"
+                                                }
+                                            />
+                                        </button>
                                     ))
                                 ) : (
                                     <p className="text-lg pb-2">
@@ -86,20 +110,18 @@ const CommandSearch = ({
     category: string;
 }) => {
     return (
-        <div className="flex flex-col rounded-lg bg-[#1b1c1c] hover:bg-[#111111] transition-shadow duration-200 ease-linear text-white">
-            <a href={`/commands#${name}`}>
-                <div className="pl-4">
-                    <p className="text-sm mt-3 text-neutral-400 font-medium pr-4">
-                        {category}
-                    </p>
-                    <p className="text-xl font-semibold inline-flex items-center">
-                        {name}
-                    </p>
-                    <p className="text-sm mt-1 mb-2 text-neutral-400 font-medium pr-4">
-                        {description}
-                    </p>
-                </div>
-            </a>
+        <div className="flex flex-col rounded-lg items-start text-start bg-[#1b1c1c] hover:bg-[#111111] transition-shadow duration-200 ease-linear text-white">
+            <div className="pl-4">
+                <p className="text-sm mt-3 text-neutral-400 font-medium pr-4">
+                    {category}
+                </p>
+                <p className="text-xl font-semibold inline-flex items-center">
+                    {name}
+                </p>
+                <p className="text-sm mt-1 mb-2 text-neutral-400 font-medium pr-4">
+                    {description}
+                </p>
+            </div>
         </div>
     );
 };
