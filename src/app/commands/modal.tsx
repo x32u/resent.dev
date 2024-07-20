@@ -36,9 +36,7 @@ export default function Modal({
 
     const handleCommandClick = (commandName: string) => {
         setIsOpen(false);
-        // useEffect(() => {
-            document.body.style.overflow = "auto";
-        // });
+        document.body.style.overflow = "auto";
         window.location.hash = `#${commandName}`;
     };
 
