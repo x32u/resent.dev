@@ -86,8 +86,9 @@ export default function Commands() {
                                     </button>
                                 }
                                 modal
+                                closeOnDocumentClick
                             >
-                                <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-lg flex justify-center items-center">
+                                <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-lg flex justify-center items-center" onClick={() => close()}>
                                     <div className="max-w-[542px] w-full sm:w-[542px] bg-[#111212] rounded-3xl overflow-hidden">
                                         <div
                                             className="modal rounded-3xl"
@@ -155,7 +156,7 @@ export default function Commands() {
                                                                     )
                                                                 )
                                                         ) : (
-                                                            <p>
+                                                            <p className="text-lg pb-2">
                                                                 No commands
                                                                 found
                                                             </p>
