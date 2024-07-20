@@ -21,6 +21,7 @@ import Exported from "./commands.json";
 import { Navbar } from "@/components/global/Navbar";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
+import Modal from "./modal";
 
 export default function Commands() {
     const [activeCategory, setActiveCategory] = useState("Donator");
@@ -29,6 +30,7 @@ export default function Commands() {
     const [scrollStartX, setScrollStartX] = useState(0);
     const [scrollLeft, setScrollLeft] = useState(0);
     const [searchInput, setSearchInput] = useState<string>("");
+    const [open, setOpen] = useState<boolean>(false);
 
     const handleMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
         setIsScrolling(true);
@@ -60,10 +62,6 @@ export default function Commands() {
         (command) => command.category === activeCategory
     );
 
-    const activeCommandsSearch = commands.filter(
-        (command) => command.category === activeCategory
-    );
-
     return (
         <>
             <Navbar />
@@ -77,98 +75,16 @@ export default function Commands() {
                             <h1 className="text-3xl font-bold">Commands</h1>
                         </div>
                         <div className="flex flex-row gap-4"></div>
-                        {/* <div className="flex flex-row gap-12">
-                            <Popup
-                                className="gap-20 color-white w-100"
-                                trigger={
-                                    <button className="float-right block w-full px-4 py-4 pl-4 text-sm rounded-lg bg-[#1a1a19] placeholder-zinc-400 text-white focus:outline-none">
-                                        <FaSearch className="w-5 h-5 font-thin" />
-                                    </button>
-                                }
-                                modal
-                                closeOnDocumentClick
+                        <div className="flex flex-row gap-12">
+                            <button
+                                onClick={() => setOpen(true)}
+                                className="float-right block w-full px-4 py-4 pl-4 text-sm rounded-lg bg-[#1a1a19] placeholder-zinc-400 text-white focus:outline-none"
                             >
-                                <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-lg flex justify-center items-center" onClick={() => close()}>
-                                    <div className="max-w-[542px] w-full sm:w-[542px] bg-[#111212] rounded-3xl overflow-hidden">
-                                        <div
-                                            className="modal rounded-3xl"
-                                            style={{ color: "white" }}
-                                        >
-                                            <div className="header p-0 sticky top-0 w-100 bg-[#161717]">
-                                                <center>
-                                                    <input
-                                                        type="search"
-                                                        onChange={(e) =>
-                                                            setSearchInput(
-                                                                e.target.value
-                                                            )
-                                                        }
-                                                        className="flex items-center justify-center w-full px-12 pl-4 text-lg bg-[#161717] placeholder-zinc-400 text-white focus:outline-none searchbox border-0 py-5 font-semibold"
-                                                        placeholder="Search for a command..."
-                                                        required
-                                                    />
-                                                </center>
-                                            </div>
-                                            <div className="content bg-[#111212] py-2 px-3">
-                                                <div className="mt-1 grid grid-cols-1 gap-3">
-                                                    {searchInput.length >= 2 ? (
-                                                        activeCommandsSearch.filter(
-                                                            (command) => {
-                                                                return command.name
-                                                                    .toLowerCase()
-                                                                    .includes(
-                                                                        searchInput.toLowerCase()
-                                                                    );
-                                                            }
-                                                        ).length > 0 ? (
-                                                            activeCommandsSearch
-                                                                .filter(
-                                                                    (
-                                                                        command
-                                                                    ) => {
-                                                                        return command.name
-                                                                            .toLowerCase()
-                                                                            .includes(
-                                                                                searchInput.toLowerCase()
-                                                                            );
-                                                                    }
-                                                                )
-                                                                .map(
-                                                                    (
-                                                                        commandsSearch
-                                                                    ) => (
-                                                                        <CommandSearch
-                                                                            key={
-                                                                                commandsSearch.name
-                                                                            }
-                                                                            name={
-                                                                                commandsSearch.name
-                                                                            }
-                                                                            description={
-                                                                                commandsSearch.help ??
-                                                                                "None"
-                                                                            }
-                                                                            category={
-                                                                                commandsSearch.category ??
-                                                                                "None"
-                                                                            }
-                                                                        />
-                                                                    )
-                                                                )
-                                                        ) : (
-                                                            <p className="text-lg pb-2">
-                                                                No commands
-                                                                found
-                                                            </p>
-                                                        )
-                                                    ) : null}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Popup>
-                        </div> */}
+                                <FaSearch className="w-5 h-5 font-thin" />
+                            </button>
+                            {open && <Modal setIsOpen={open} />}
+                            
+                        </div>
                     </div>
                     <div
                         ref={scrollContainerRef}
@@ -415,34 +331,6 @@ const SelectorItem = ({
                 </span>
             </div>
         </button>
-    );
-};
-
-const CommandSearch = ({
-    name,
-    description,
-    category,
-}: {
-    name: string;
-    description: string;
-    category: string;
-}) => {
-    return (
-        <div className="flex flex-col rounded-lg bg-[#1b1c1c] hover:bg-[#111111] transition-shadow duration-200 ease-linear text-white">
-            <a href={`/commands#${name}`}>
-                <div className="pl-4">
-                    <p className="text-sm mt-3 text-neutral-400 font-medium pr-4">
-                        {category}
-                    </p>
-                    <p className="text-xl font-semibold inline-flex items-center">
-                        {name}
-                    </p>
-                    <p className="text-sm mt-1 mb-2 text-neutral-400 font-medium pr-4">
-                        {description}
-                    </p>
-                </div>
-            </a>
-        </div>
     );
 };
 
