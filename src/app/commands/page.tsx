@@ -3,7 +3,7 @@ import { FaLastfmSquare } from "react-icons/fa";
 import { FaCog } from "react-icons/fa";
 import { ReactNode, useRef, useState } from "react";
 import { BiCommand, BiCopy } from "react-icons/bi";
-import { FaMoneyBillWaveAlt } from "react-icons/fa";
+import { FaMoneyBillWaveAlt, FaSearch } from "react-icons/fa";
 import { FaShield } from "react-icons/fa6";
 import { PiNotebookFill } from "react-icons/pi";
 import { IoIosSettings } from "react-icons/io";
@@ -19,6 +19,8 @@ import { IoChatbubbleEllipses } from "react-icons/io5";
 import { TbMilitaryRank } from "react-icons/tb";
 import Exported from "./commands.json";
 import { Navbar } from "@/components/global/Navbar";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
 
 export default function Commands() {
     const [activeCategory, setActiveCategory] = useState("Donator");
@@ -26,6 +28,7 @@ export default function Commands() {
     const [isScrolling, setIsScrolling] = useState(false);
     const [scrollStartX, setScrollStartX] = useState(0);
     const [scrollLeft, setScrollLeft] = useState(0);
+    const [searchInput, setSearchInput] = useState<string>("");
 
     const handleMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
         setIsScrolling(true);
@@ -57,6 +60,10 @@ export default function Commands() {
         (command) => command.category === activeCategory
     );
 
+    const activeCommandsSearch = commands.filter(
+        (command) => command.category === activeCategory
+    );
+
     return (
         <>
             <Navbar />
@@ -70,6 +77,97 @@ export default function Commands() {
                             <h1 className="text-3xl font-bold">Commands</h1>
                         </div>
                         <div className="flex flex-row gap-4"></div>
+                        <div className="flex flex-row gap-12">
+                            <Popup
+                                className="gap-20 color-white w-100"
+                                trigger={
+                                    <button className="float-right block w-full px-4 py-4 pl-4 text-sm rounded-lg bg-[#1a1a19] placeholder-zinc-400 text-white focus:outline-none">
+                                        <FaSearch className="w-5 h-5 font-thin" />
+                                    </button>
+                                }
+                                modal
+                            >
+                                <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-lg flex justify-center items-center">
+                                    <div className="max-w-[542px] w-full sm:w-[542px] bg-[#111212] rounded-3xl overflow-hidden">
+                                        <div
+                                            className="modal rounded-3xl"
+                                            style={{ color: "white" }}
+                                        >
+                                            <div className="header p-0 sticky top-0 w-100 bg-[#161717]">
+                                                <center>
+                                                    <input
+                                                        type="search"
+                                                        onChange={(e) =>
+                                                            setSearchInput(
+                                                                e.target.value
+                                                            )
+                                                        }
+                                                        className="flex items-center justify-center w-full px-12 pl-4 text-lg bg-[#161717] placeholder-zinc-400 text-white focus:outline-none searchbox border-0 py-5 font-semibold"
+                                                        placeholder="Search for a command..."
+                                                        required
+                                                    />
+                                                </center>
+                                            </div>
+                                            <div className="content bg-[#111212] py-2 px-3">
+                                                <div className="mt-1 grid grid-cols-1 gap-3">
+                                                    {searchInput.length >= 2 ? (
+                                                        activeCommandsSearch.filter(
+                                                            (command) => {
+                                                                return command.name
+                                                                    .toLowerCase()
+                                                                    .includes(
+                                                                        searchInput.toLowerCase()
+                                                                    );
+                                                            }
+                                                        ).length > 0 ? (
+                                                            activeCommandsSearch
+                                                                .filter(
+                                                                    (
+                                                                        command
+                                                                    ) => {
+                                                                        return command.name
+                                                                            .toLowerCase()
+                                                                            .includes(
+                                                                                searchInput.toLowerCase()
+                                                                            );
+                                                                    }
+                                                                )
+                                                                .map(
+                                                                    (
+                                                                        commandsSearch
+                                                                    ) => (
+                                                                        <CommandSearch
+                                                                            key={
+                                                                                commandsSearch.name
+                                                                            }
+                                                                            name={
+                                                                                commandsSearch.name
+                                                                            }
+                                                                            description={
+                                                                                commandsSearch.help ??
+                                                                                "None"
+                                                                            }
+                                                                            category={
+                                                                                commandsSearch.category ??
+                                                                                "None"
+                                                                            }
+                                                                        />
+                                                                    )
+                                                                )
+                                                        ) : (
+                                                            <p>
+                                                                No commands
+                                                                found
+                                                            </p>
+                                                        )
+                                                    ) : null}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Popup>
+                        </div>
                     </div>
                     <div
                         ref={scrollContainerRef}
@@ -319,6 +417,34 @@ const SelectorItem = ({
     );
 };
 
+const CommandSearch = ({
+    name,
+    description,
+    category,
+}: {
+    name: string;
+    description: string;
+    category: string;
+}) => {
+    return (
+        <div className="flex flex-col rounded-lg bg-[#1b1c1c] hover:bg-[#111111] transition-shadow duration-200 ease-linear text-white">
+            <a href={`/commands#${name}`}>
+                <div className="pl-4">
+                    <p className="text-sm mt-3 text-neutral-400 font-medium pr-4">
+                        {category}
+                    </p>
+                    <p className="text-xl font-semibold inline-flex items-center">
+                        {name}
+                    </p>
+                    <p className="text-sm mt-1 mb-2 text-neutral-400 font-medium pr-4">
+                        {description}
+                    </p>
+                </div>
+            </a>
+        </div>
+    );
+};
+
 const Command = ({
     name,
     description,
@@ -335,60 +461,65 @@ const Command = ({
     const handleCopyClick = () => {
         navigator.clipboard.writeText(name);
         setTooltipText("Copied");
-        setTimeout(() => {setTooltipText("Copy")}, 2500)
+        setTimeout(() => {
+            setTooltipText("Copy");
+        }, 2500);
     };
 
     return (
         <>
-        <div className="flex flex-col py-6 rounded-3xl bg-loti-200 border transition-shadow duration-200 ease-linear border-loti-300 text-white">
-            <div className="h-full flex flex-col justify-between">
-                <div className="px-6">
-                    <div className="flex items-start justify-between gap-x-4">
-                        <div className="flex items-center gap-2">
-                            <p className="text-xl font-semibold inline-flex items-center">
-                                {name}
-                            </p>
-                        </div>
-                        <button
-                            data-clipboard-text={name}
-                            className="text-neutral-500 transition duration-200 ease-linear hover:text-white relative"
-                            onClick={handleCopyClick}
-                        >
-                            <BiCopy className="w-6 h-6" />
-                            <span className="tooltip">{tooltipText}</span>
-                        </button>
-                    </div>
-                    <p className="text-sm mt-3 text-neutral-400 font-medium pr-4">
-                        {description}
-                    </p>
-                </div>
-                <div>
-                    <hr className="border-t border-loti-300 w-full my-4" />
-                    <div className="px-6 flex flex-col gap-4">
-                        <div>
-                            <p className="text-sm tracking-wide text-loti-pink font-medium">
-                                arguments
-                            </p>
-                            <div className="flex items-center gap-2 mt-3">
-                                <p className="text-neutral-200 inline-block text-sm py-1">
-                                    {args}
+            <div
+                className="flex flex-col py-6 rounded-3xl bg-loti-200 border transition-shadow duration-200 ease-linear border-loti-300 text-white"
+                id={name}
+            >
+                <div className="h-full flex flex-col justify-between">
+                    <div className="px-6">
+                        <div className="flex items-start justify-between gap-x-4">
+                            <div className="flex items-center gap-2">
+                                <p className="text-xl font-semibold inline-flex items-center">
+                                    {name}
                                 </p>
                             </div>
+                            <button
+                                data-clipboard-text={name}
+                                className="text-neutral-500 transition duration-200 ease-linear hover:text-white relative"
+                                onClick={handleCopyClick}
+                            >
+                                <BiCopy className="w-6 h-6" />
+                                <span className="tooltip">{tooltipText}</span>
+                            </button>
                         </div>
-                        <div>
-                            <p className="text-sm tracking-wide text-loti-pink font-medium">
-                                permissions
-                            </p>
-                            <div className="flex items-center gap-2 mt-3">
-                                <p className="text-white font-medium inline-block text-xs py-1.5">
-                                    {permissions}
+                        <p className="text-sm mt-3 text-neutral-400 font-medium pr-4">
+                            {description}
+                        </p>
+                    </div>
+                    <div>
+                        <hr className="border-t border-loti-300 w-full my-4" />
+                        <div className="px-6 flex flex-col gap-4">
+                            <div>
+                                <p className="text-sm tracking-wide text-loti-pink font-medium">
+                                    arguments
                                 </p>
+                                <div className="flex items-center gap-2 mt-3">
+                                    <p className="text-neutral-200 inline-block text-sm py-1">
+                                        {args}
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <p className="text-sm tracking-wide text-loti-pink font-medium">
+                                    permissions
+                                </p>
+                                <div className="flex items-center gap-2 mt-3">
+                                    <p className="text-white font-medium inline-block text-xs py-1.5">
+                                        {permissions}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         </>
     );
 };
