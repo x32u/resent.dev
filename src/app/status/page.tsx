@@ -27,7 +27,7 @@ export default function Status() {
           maxBodyLength: Infinity,
           url: "https://kure.pl/shards/get",
           headers: {
-            "api-key": "M!58ZCTj0fTkai%",
+            "api-key": process.env.NEXT_PUBLIC_API_KEY,
           },
         };
 
