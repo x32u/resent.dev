@@ -67,8 +67,8 @@ export default function Status() {
                 shard={shard.shard_id.toString()}
                 uptime={shard.uptime}
                 latency={shard.latency}
-                servers={shard.server_count.toString()}
-                users={shard.member_count.toString()}
+                servers={shard.server_count.toLocaleString()}
+                users={shard.member_count.toLocaleString()}
               />
             ))
           )}
