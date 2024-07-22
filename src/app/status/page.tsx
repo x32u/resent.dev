@@ -6,7 +6,6 @@ import { HiServerStack } from "react-icons/hi2";
 import { FaUsers } from "react-icons/fa";
 import { IoInformationCircleSharp } from "react-icons/io5";
 import { useEffect, useState } from "react";
-import { Navbar } from "@/components/global/Navbar";
 import axios from "axios";
 
 interface ShardData {
@@ -45,7 +44,6 @@ export default function Status() {
 
   return (
     <main className="mt-20 mx-10">
-      <Navbar />
       <section className="max-w-5xl mx-auto w-full pb-20 pt-20">
         <div className="flex flex-row justify-between gap-20">
           <div className="flex flex-row items-center gap-2 text-white">
