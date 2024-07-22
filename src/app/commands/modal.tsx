@@ -5,9 +5,11 @@ import Exported from "./commands.json";
 export default function Modal({
     isOpen,
     setIsOpen,
+    commands
 }: {
     isOpen: boolean;
     setIsOpen: (isOpen: boolean) => void;
+    commands: any
 }) {
     const [open, setOpen] = useState<boolean>(isOpen);
     const [searchInput, setSearchInput] = useState<string>("");
@@ -24,20 +26,19 @@ export default function Modal({
         }
     }, [open]);
 
-    const commands = Object.values(Exported)
-        .flat()
-        .sort((a, b) => a.name.localeCompare(b.name));
+    // const commands = Object.values(Exported)
+    //     .flat()
+    //     .sort((a, b) => a.name.localeCompare(b.name));
 
     if (!open) return null;
 
-    const filteredCommands = commands.filter((command) =>
+    const filteredCommands = commands.filter((command: any) =>
         command.name.toLowerCase().includes(searchInput.toLowerCase())
     );
 
     const handleCommandClick = (commandName: string) => {
         setIsOpen(false);
         document.body.style.overflow = "auto";
-        window.location.hash = `#${commandName}`;
     };
 
     return (
@@ -65,13 +66,14 @@ export default function Modal({
                         <div className="content bg-[#111212] py-2 px-3">
                             <div className="mt-1 grid grid-cols-1 gap-3">
                                 {filteredCommands.length > 0 ? (
-                                    filteredCommands.map((command) => (
-                                        <button
+                                    filteredCommands.map((command: any) => (
+                                        <a
                                             key={command.name}
                                             onClick={() =>
                                                 handleCommandClick(command.name)
                                             }
                                             className="items-start text-left w-full"
+                                            href={`/commands#${command.name}`}
                                         >
                                             <CommandSearch
                                                 name={command.name}
@@ -82,10 +84,10 @@ export default function Modal({
                                                     command.category ?? "None"
                                                 }
                                             />
-                                        </button>
+                                        </a>
                                     ))
                                 ) : (
-                                    <p className="text-lg pb-2">
+                                    <p className="text-lg pb-2 mr-2">
                                         No commands found
                                     </p>
                                 )}

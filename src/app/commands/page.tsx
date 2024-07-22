@@ -67,26 +67,28 @@ export default function Commands() {
             <Navbar />
             <main className="mt-20 mx-10" onMouseUp={handleMouseUp}>
                 <section className="max-w-5xl mx-auto w-full pb-20 pt-20">
-                    <div className="flex flex-row justify-between gap-20">
+                    <div className="flex flex-col sm:flex-row justify-between gap-4 sm:gap-6 md:gap-8 lg:gap-12">
                         <div className="flex flex-row items-center gap-2 text-white">
-                            <div className="flex flex-row justify-center items-center w-12 h-12 bg-loti-200 rounded-full">
-                                <BiCommand className="w-6 h-6" />
+                            <div className="flex flex-row justify-center items-center w-10 h-10 sm:w-12 sm:h-12 bg-loti-200 rounded-full">
+                                <BiCommand className="w-5 h-5 sm:w-6 sm:h-6" />
                             </div>
-                            <h1 className="text-3xl font-bold">Commands</h1>
+                            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold">
+                                Commands
+                            </h1>
                         </div>
-                        <div className="flex flex-row gap-4"></div>
-                        <div className="flex flex-row gap-12">
+                        <div className="flex flex-row gap-2 sm:gap-4 md:gap-6 lg:gap-8 flex-grow justify-end">
                             <button
                                 onClick={() => setOpen(true)}
-                                className="float-right block w-full px-4 py-4 pl-4 text-sm rounded-lg bg-[#1a1a19] placeholder-zinc-400 text-white focus:outline-none"
+                                className="block px-4 py-2 sm:px-4 sm:py-2.5 md:px-4 md:py-3 text-sm rounded-lg bg-[#1a1a19] placeholder-zinc-400 text-white focus:outline-none"
                             >
-                                <FaSearch className="w-5 h-5 font-thin" />
+                                <FaSearch className="w-4 h-4 sm:w-5 sm:h-5" />
                             </button>
                             {open && (
-                                <Modal isOpen={open} setIsOpen={setOpen} />
+                                <Modal isOpen={open} setIsOpen={setOpen} commands={activeCommands} />
                             )}
                         </div>
                     </div>
+
                     <div
                         ref={scrollContainerRef}
                         className="mt-10 flex items-center overflow-x-scroll no-scrollbar touch-scroll h-14 bg-loti-200 rounded-2xl w-full border border-loti-300"
