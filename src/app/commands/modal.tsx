@@ -21,16 +21,23 @@ export default function Modal({
     useEffect(() => {
         if (open) {
             document.body.style.overflow = "hidden";
+
+            const handleKeyDown = (e: KeyboardEvent) => {
+                if (e.key === "Escape") {
+                    setIsOpen(false);
+                }
+            };
+
+            window.addEventListener("keydown", handleKeyDown);
+
+            return () => {
+                window.removeEventListener("keydown", handleKeyDown);
+                document.body.style.overflow = "auto";
+            };
         } else {
             document.body.style.overflow = "auto";
         }
-    }, [open]);
-
-    // const commands = Object.values(Exported)
-    //     .flat()
-    //     .sort((a, b) => a.name.localeCompare(b.name));
-
-    if (!open) return null;
+    }, [open, setIsOpen]);
 
     const filteredCommands = commands.filter((command: any) =>
         command.name.toLowerCase().includes(searchInput.toLowerCase())
@@ -40,6 +47,8 @@ export default function Modal({
         setIsOpen(false);
         document.body.style.overflow = "auto";
     };
+
+    if (!open) return null;
 
     return (
         <div
