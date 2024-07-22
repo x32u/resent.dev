@@ -14,7 +14,6 @@ export const Navbar = () => {
                 </Link>
                 <div className="hidden flex-row gap-10 items-center sm:flex">
                     <Link href="/commands" className={`font-semibold py-6 ${pathname === '/commands' ? 'border-b-2 border-loti-pink text-loti-white' : ''}`}>Commands</Link>
-                    <Link href="/docs" className={`font-semibold py-6 ${pathname === '/docs' ? 'border-b-2 border-loti-pink text-loti-white' : ''}`}>Documentation</Link>
                     <Link href="/legal" className={`font-semibold py-6 ${pathname === '/docs' ? 'border-b-2 border-loti-pink text-loti-white' : ''}`}>Legal</Link>
                     <Link href="/status" className={`font-semibold py-6 ${pathname === '/status' ? 'border-b-2 border-loti-pink text-loti-white' : ''}`}>Status</Link>
                 </div>

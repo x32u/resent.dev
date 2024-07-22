@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Navbar } from "@/components/global/Navbar";
 
 export default function Terms() {
   return (
