@@ -3,7 +3,7 @@ import { FaLastfmSquare } from "react-icons/fa";
 import { FaCog } from "react-icons/fa";
 import { ReactNode, useRef, useState } from "react";
 import { BiCommand, BiCopy } from "react-icons/bi";
-import { FaMoneyBillWaveAlt, FaSearch } from "react-icons/fa";
+import { FaMoneyBillWaveAlt } from "react-icons/fa";
 import { FaShield } from "react-icons/fa6";
 import { PiNotebookFill } from "react-icons/pi";
 import { IoIosSettings } from "react-icons/io";
@@ -19,9 +19,6 @@ import { IoChatbubbleEllipses } from "react-icons/io5";
 import { TbMilitaryRank } from "react-icons/tb";
 import Exported from "./commands.json";
 import { Navbar } from "@/components/global/Navbar";
-import Popup from "reactjs-popup";
-import "reactjs-popup/dist/index.css";
-import Modal from "./modal";
 
 export default function Commands() {
     const [activeCategory, setActiveCategory] = useState("Donator");
@@ -29,8 +26,6 @@ export default function Commands() {
     const [isScrolling, setIsScrolling] = useState(false);
     const [scrollStartX, setScrollStartX] = useState(0);
     const [scrollLeft, setScrollLeft] = useState(0);
-    const [searchInput, setSearchInput] = useState<string>("");
-    const [open, setOpen] = useState<boolean>(false);
 
     const handleMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
         setIsScrolling(true);
@@ -67,28 +62,15 @@ export default function Commands() {
             <Navbar />
             <main className="mt-20 mx-10" onMouseUp={handleMouseUp}>
                 <section className="max-w-5xl mx-auto w-full pb-20 pt-20">
-                    <div className="flex flex-col sm:flex-row justify-between gap-4 sm:gap-6 md:gap-8 lg:gap-12">
+                    <div className="flex flex-row justify-between gap-20">
                         <div className="flex flex-row items-center gap-2 text-white">
-                            <div className="flex flex-row justify-center items-center w-10 h-10 sm:w-12 sm:h-12 bg-loti-200 rounded-full">
-                                <BiCommand className="w-5 h-5 sm:w-6 sm:h-6" />
+                            <div className="flex flex-row justify-center items-center w-12 h-12 bg-loti-200 rounded-full">
+                                <BiCommand className="w-6 h-6" />
                             </div>
-                            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold">
-                                Commands
-                            </h1>
+                            <h1 className="text-3xl font-bold">Commands</h1>
                         </div>
-                        <div className="flex flex-row gap-2 sm:gap-4 md:gap-6 lg:gap-8 flex-grow justify-end">
-                            <button
-                                onClick={() => setOpen(true)}
-                                className="block px-4 py-2 sm:px-4 sm:py-2.5 md:px-4 md:py-3 text-sm rounded-lg bg-[#1a1a19] placeholder-zinc-400 text-white focus:outline-none"
-                            >
-                                <FaSearch className="w-4 h-4 sm:w-5 sm:h-5" />
-                            </button>
-                            {open && (
-                                <Modal isOpen={open} setIsOpen={setOpen} commands={activeCommands} />
-                            )}
-                        </div>
+                        <div className="flex flex-row gap-4"></div>
                     </div>
-
                     <div
                         ref={scrollContainerRef}
                         className="mt-10 flex items-center overflow-x-scroll no-scrollbar touch-scroll h-14 bg-loti-200 rounded-2xl w-full border border-loti-300"
@@ -353,65 +335,63 @@ const Command = ({
     const handleCopyClick = () => {
         navigator.clipboard.writeText(name);
         setTooltipText("Copied");
-        setTimeout(() => {
-            setTooltipText("Copy");
-        }, 2500);
     };
 
+    const handleMouseEnter = () => {
+        setTooltipText("Copy");
+    };
     return (
         <>
-            <div
-                className="flex flex-col py-6 rounded-3xl bg-loti-200 border transition-shadow duration-200 ease-linear border-loti-300 text-white"
-                id={name}
-            >
-                <div className="h-full flex flex-col justify-between">
-                    <div className="px-6">
-                        <div className="flex items-start justify-between gap-x-4">
-                            <div className="flex items-center gap-2">
-                                <p className="text-xl font-semibold inline-flex items-center">
-                                    {name}
-                                </p>
-                            </div>
-                            <button
-                                data-clipboard-text={name}
-                                className="text-neutral-500 transition duration-200 ease-linear hover:text-white relative"
-                                onClick={handleCopyClick}
-                            >
-                                <BiCopy className="w-6 h-6" />
-                                <span className="tooltip">{tooltipText}</span>
-                            </button>
+        <div className="flex flex-col py-6 rounded-3xl bg-loti-200 border transition-shadow duration-200 ease-linear border-loti-300 text-white">
+            <div className="h-full flex flex-col justify-between">
+                <div className="px-6">
+                    <div className="flex items-start justify-between gap-x-4">
+                        <div className="flex items-center gap-2">
+                            <p className="text-xl font-semibold inline-flex items-center">
+                                {name}
+                            </p>
                         </div>
-                        <p className="text-sm mt-3 text-neutral-400 font-medium pr-4">
-                            {description}
-                        </p>
+                        <button
+                            data-clipboard-text={name}
+                            className="text-neutral-500 transition duration-200 ease-linear hover:text-white"
+                            onClick={handleCopyClick}
+                            onMouseEnter={handleMouseEnter}
+                            title={tooltipText}
+                        >
+                            <BiCopy className="w-6 h-6" />
+                        </button>
                     </div>
-                    <div>
-                        <hr className="border-t border-loti-300 w-full my-4" />
-                        <div className="px-6 flex flex-col gap-4">
-                            <div>
-                                <p className="text-sm tracking-wide text-loti-pink font-medium">
-                                    arguments
+                    <p className="text-sm mt-3 text-neutral-400 font-medium pr-4">
+                        {description}
+                    </p>
+                </div>
+                <div>
+                    <hr className="border-t border-loti-300 w-full my-4" />
+                    <div className="px-6 flex flex-col gap-4">
+                        <div>
+                            <p className="text-sm tracking-wide text-loti-pink font-medium">
+                                arguments
+                            </p>
+                            <div className="flex items-center gap-2 mt-3">
+                                <p className="text-neutral-200 inline-block text-sm py-1">
+                                    {args}
                                 </p>
-                                <div className="flex items-center gap-2 mt-3">
-                                    <p className="text-neutral-200 inline-block text-sm py-1">
-                                        {args}
-                                    </p>
-                                </div>
                             </div>
-                            <div>
-                                <p className="text-sm tracking-wide text-loti-pink font-medium">
-                                    permissions
+                        </div>
+                        <div>
+                            <p className="text-sm tracking-wide text-loti-pink font-medium">
+                                permissions
+                            </p>
+                            <div className="flex items-center gap-2 mt-3">
+                                <p className="text-white font-medium inline-block text-xs py-1.5">
+                                    {permissions}
                                 </p>
-                                <div className="flex items-center gap-2 mt-3">
-                                    <p className="text-white font-medium inline-block text-xs py-1.5">
-                                        {permissions}
-                                    </p>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </>
     );
 };

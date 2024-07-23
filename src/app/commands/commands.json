@@ -2184,7 +2184,7 @@
         {
             "name": "sticker list",
             "description": "returns a list of server's stickers",
-            "help": "emoji",
+            "help": "None",
             "brief": "None",
             "category": "Emoji"
         },

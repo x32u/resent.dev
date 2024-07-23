@@ -12,6 +12,33 @@ import Link from 'next/link'
 
 
 export default function Home() {
+    const [stats, setStats] = useState({ members: 0, servers: 0 });
+    const [apiIssue, setApiIssue] = useState(false);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch("api/stats");
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                const data = await response.json();
+                if (data.members === 0 || data.servers === 0) {
+                    setApiIssue(true);
+                } else {
+                    setStats(data);
+                }
+            } catch (error) {
+                console.error(
+                    "There was a problem with your fetch operation:",
+                    error
+                );
+                setApiIssue(true);
+            }
+        };
+
+        fetchData();
+    }, []);
     return (
         <>
             <div className="flex flex-col h-screen w-screen items-center justify-center mt-20 sm:mt-0">
