@@ -2229,6 +2229,13 @@
             "help": "<sticker>",
             "brief": "manage expressions",
             "category": "Emoji"
+        },
+        {
+            "name": "sticker tag",
+            "description": "rename all the stickers in the server to your vanity",
+            "help": "None",
+            "brief": "manage expressions",
+            "category": "Emoji"
         }
     ],
     "Giveaway": [

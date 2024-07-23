@@ -123,8 +123,8 @@ const Shard = ({
                 {uptime
                   .replaceAll("days", "d")
                   .replaceAll("day", "d")
-                  .replaceAll("hours", "hrs")
-                  .replaceAll("hour", "hr")
+                  .replaceAll("hours", "h")
+                  .replaceAll("hour", "h")
                   .replaceAll("minutes", "m")
                   .replaceAll("minute", "m")
                   .replace("seconds", "s")
