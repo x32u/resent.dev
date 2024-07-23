@@ -2182,7 +2182,7 @@
             "category": "Emoji"
         },
         {
-            "name": "stickerlist",
+            "name": "sticker list",
             "description": "returns a list of server's stickers",
             "help": "emoji",
             "brief": "None",
