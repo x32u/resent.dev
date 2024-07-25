@@ -1635,8 +1635,8 @@
             "category": "LastFM"
         },
         {
-            "name": "lastfm set",
-            "description": "register your LastFM account",
+            "name": "lastfm login",
+            "description": "login to your LastFM account",
             "help": "<name>",
             "brief": "None",
             "category": "LastFM"
