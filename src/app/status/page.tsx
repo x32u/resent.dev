@@ -127,8 +127,8 @@ const Shard = ({
                   .replaceAll("hour", "h")
                   .replaceAll("minutes", "m")
                   .replaceAll("minute", "m")
-                  .replace("seconds", "s")
-                  .replace("second", "s")
+                  .replace("seconds", "")
+                  .replace("second", "")
                   .replaceAll(" ", "")
                   .replaceAll("and", " ")
                   .replaceAll(",", " ")}
