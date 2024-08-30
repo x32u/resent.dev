@@ -2203,6 +2203,20 @@
             "category": "Emoji"
         },
         {
+            "name": "zipemojis",
+            "description": "sends a zipfile containing all the servers emojis",
+            "help": "None",
+            "brief": "manage expressions",
+            "category": "Emoji"
+        },
+        {
+            "name": "fromimage",
+            "description": "create an emoji from an image",
+            "help": "<upload emoji>",
+            "brief": "manage expressions",
+            "category": "Emoji"
+        },
+        {
             "name": "addmultiple",
             "description": "add multiple emojis",
             "help": "<emojis>",
